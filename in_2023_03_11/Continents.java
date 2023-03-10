@@ -1,7 +1,7 @@
 // LEARN JAVA / Continents and Cities
 
 /*
-Ten zajebiaszczy program wyświetli nam nazwę kontynentu i jego największego miasta w oparciu o wartość zmiennej!
+Ten zajebiaszczy kawałek kodu wyświetli nam nazwę kontynentu i jego największego miasta w oparciu o wartość zmiennej!
 Smerfastycznie! I to wszystko na switchu!!1!111
 */
 

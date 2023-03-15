@@ -50,28 +50,28 @@ public class DNA {
             System.out.println("Nope ;( not a protein...");
         }
 
-        /* po ciężkiej pracy należy się badaczowi odpoczynek
-                 ______
-              (((((    \
-               ); \\\\|)|
-              <   ||||||/
-               >  ///////
-               `--| abac
-               ___/     \___
-            (    ~        ~   )
-            \  `              /
-            | \             / |
-            | -\           /  /
-            (__ |     |   |- ,
-                |     |   |
-                /          \
-               /     `,     \
-              |       )      )
-              |      _/_   _ /
-               \      |      |
-                |     |      ,
+        // po ciężkiej pracy należy się badaczowi odpoczynek
+System.out.println("                 ______");
+System.out.println("              (((((    \"");
+System.out.println("               ); \\\\|)|");
+System.out.println("              <   ||||||/");
+System.out.println("               >  ///////");
+System.out.println("               `--| abac");
+System.out.println("               ___/     \"___");
+System.out.println("            (    ~        ~   ");
+System.out.println("            \"  `              /");
+System.out.println("            | \"             / |");
+System.out.println("            | -\"           /  /");
+System.out.println("            (__ |     |   |- ,");
+System.out.println("                |     |   |");
+System.out.println("                /          \"");
+System.out.println("               /     `,     \"");
+System.out.println("              |       )      )");
+System.out.println("              |      _/_   _ /");
+System.out.println("               \"      |      |");
+System.out.println("                |     |      ,");
 
-*/
+
 
     }
 }

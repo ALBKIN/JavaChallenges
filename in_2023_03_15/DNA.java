@@ -2,7 +2,7 @@
 
 /*
  This program will be trying to determine whether there is a protein in a strand of DNA. Yay!
- Check out those awesome DNA ascii drawings:
+ O, te niżej zajebiste DNA z ascii będę badau :
   -. .-.   .-. .-.   .
     \   \ /   \   \ /
    / \   \   / \   \
@@ -50,7 +50,7 @@ public class DNA {
             System.out.println("Nope ;( not a protein...");
         }
 
-        /*
+        /* po ciężkiej pracy należy się badaczowi odpoczynek
                  ______
               (((((    \
                ); \\\\|)|

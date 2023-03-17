@@ -1,0 +1,23 @@
+// LEARN JAVA / ACCESS, ENCAPSULATION AND SCOPE / The public Keyword
+
+package in_2023_03_16;
+
+public class CheckingAccount {
+    public String name;
+    private int balance;
+    private String id;
+
+    public CheckingAccount(String inputName, int inputBalance, String inputId) {
+        name = inputName;
+        balance = inputBalance;
+        id = inputId;
+    }
+
+    public void addFunds(int fundsToAdd) {
+        balance += fundsToAdd;
+    }
+
+    public void getInfo() {
+        System.out.println("This checking account belongs to " + name + ". It has " + balance + " dollars in it.");
+    }
+}

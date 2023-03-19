@@ -7,6 +7,7 @@ class Spaghetti5 extends Noodle5 {
 
         super(30.0, 0.2, "round", "semolina flour");
     }
+
     @Override
     public String getCookPrep() {
 

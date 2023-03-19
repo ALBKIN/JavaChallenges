@@ -20,7 +20,7 @@ public class Language {
         System.out.println("The language follows the word order: " + wordOrder);
     }
 
-    // new experimental method for looking for a language that is spoken in a specific region ie. Poland
+    // new experimental method for looking for a language that is spoken in a specific region ie.
     public void findLanguageInRegion(String searchedRegion) {
         if (regionsSpoken.contains(searchedRegion)) {
             System.out.println("W miejscu " + searchedRegion + " they speak " + name + " among other languages");

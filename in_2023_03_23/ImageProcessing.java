@@ -49,6 +49,10 @@ public class ImageProcessing {
         paintRandomImage(random);
         twoDToImage(random, "./random.jpg");
 
+        // MAKE RECTANGLE HONTONIHONTONIHONTONIHONTONIHONTONI
+        int[] rgba = {150, 255, 10, 25}; // kolor
+        int[][] pacnijProstokata = paintRectangle(imageData, 200, 100, 99, 200, getColorIntValFromRGBA(rgba));
+        twoDToImage(pacnijProstokata, "./prostodzilla.jpg");
 
     }
 
@@ -181,7 +185,16 @@ public class ImageProcessing {
 
     public static int[][] paintRectangle(int[][] canvas, int width, int height, int rowPosition, int colPosition, int color) {
         // TODO: Fill in the code for this method
-        return null;
+        for (int i = 0; i < canvas.length; i++) {
+            for (int j = 0; j < canvas[i].length; j++) {
+                if (i >= rowPosition && i <= rowPosition + width) {
+                    if (j >= colPosition && j <= colPosition + height) {
+                        canvas[i][j] = color;
+                    }
+                }
+            }
+        }
+        return canvas;
     }
 
     public static int[][] generateRectangles(int[][] canvas, int numRectangles) {
@@ -275,3 +288,5 @@ public class ImageProcessing {
         }
     }
 }
+
+

@@ -161,6 +161,14 @@ public class ImageProcessing {
     // Painting Methods
     public static int[][] paintRandomImage(int[][] canvas) {
         // TODO: Fill in the code for this method
+        Random rand = new Random();
+        for (int i = 0; i < canvas.length; i++) {
+            for (int j = 0; j < canvas[i].length; j++) {
+
+            }
+        }
+
+
         return null;
     }
 

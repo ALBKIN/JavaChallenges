@@ -11,9 +11,7 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 
 public class ImageProcessing {
-    ublic
-
-    static void main(String[] args) {
+    public static void main(String[] args) {
         // The provided images are apple.jpg, flower.jpg, and kitten.jpg
         //	int[][] imageData = imgToTwoD("./kitten.jpg");
         // Or load your own image using a URL!

@@ -44,6 +44,11 @@ public class ImageProcessing {
         int[][] filtered = colorFilter(imageData, -50, 35, -17);
         twoDToImage(filtered, "./filtered_godzilla.jpg");
 
+        // MAKE RANDOM YOHOHOHOHOHOHOHOHOHOHOHOHOHOHOOO
+        int[][] random = new int[500][500];
+        paintRandomImage(random);
+        twoDToImage(random, "./random.jpg");
+
 
     }
 
@@ -164,12 +169,14 @@ public class ImageProcessing {
         Random rand = new Random();
         for (int i = 0; i < canvas.length; i++) {
             for (int j = 0; j < canvas[i].length; j++) {
-
+                int randomRed = rand.nextInt(256);
+                int randomGreen = rand.nextInt(256);
+                int randomBlue = rand.nextInt(256);
+                int[] randomRGBA = {randomRed, randomGreen, randomBlue, 255};
+                canvas[i][j] = getColorIntValFromRGBA(randomRGBA);
             }
         }
-
-
-        return null;
+        return canvas;
     }
 
     public static int[][] paintRectangle(int[][] canvas, int width, int height, int rowPosition, int colPosition, int color) {

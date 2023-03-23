@@ -16,12 +16,13 @@ public class ImageProcessing {
         //	int[][] imageData = imgToTwoD("./kitten.jpg");
         // Or load your own image using a URL!
         int[][] imageData = imgToTwoD("https://i.im.ge/2023/03/23/DeIDQc.keep-scrolling.jpg");
-
         // https://content.codecademy.com/projects/project_thumbnails/phaser/bug-dodger.png");
+
         //viewImageData(imageData);
+
         int[][] trimmed = trimBorders(imageData, 60);
         twoDToImage(trimmed, "./trimmed_godzilla.jpg");
-        // int[][] allFilters = stretchHorizontally(shrinkVertically(colorFilter(negativeColor(trimBorders(invertImage(imageData), 50)), 200, 20, 40)));
+
         // Painting with pixels
 
         // MAKE NEGATIVE MUAHAHA
@@ -53,6 +54,14 @@ public class ImageProcessing {
         int[] rgba = {150, 255, 10, 25}; // kolor
         int[][] pacnijProstokata = paintRectangle(imageData, 200, 100, 99, 200, getColorIntValFromRGBA(rgba));
         twoDToImage(pacnijProstokata, "./prostodzilla.jpg");
+
+        // MAKE MOAAR RECTANGLESSSS BWAHAHAHAAHHHHAHAHAHAHAHHAHAHAHAHAHAHHAHAHAHAH
+        int[][] moarRectangles = generateRectangles(imageData, 3);
+        twoDToImage(moarRectangles, "./moarzilla.jpg");
+
+        //ALL METHODS Ha-ha
+        int[][] allFilters = stretchHorizontally(shrinkVertically(colorFilter(negativeColor(trimBorders(invertImage(imageData), 50)), 200, 20, 40)));
+        twoDToImage(allFilters, "./allzilla.jpg");
 
     }
 
@@ -199,7 +208,17 @@ public class ImageProcessing {
 
     public static int[][] generateRectangles(int[][] canvas, int numRectangles) {
         // TODO: Fill in the code for this method
-        return null;
+        Random rand = new Random();
+        for(int i = 0; i < numRectangles; i++) {
+            int randomHeight = rand.nextInt(canvas.length);
+            int randomWidth = rand.nextInt(canvas[0].length);
+            int randomRowPosition = rand.nextInt(canvas.length - randomHeight);
+            int randomColPosition = rand.nextInt(canvas[0].length - randomWidth);
+            int[] rgba = {rand.nextInt(256), rand.nextInt(256), rand.nextInt(256), 255};
+            int randomColor = getColorIntValFromRGBA(rgba);
+            canvas = paintRectangle(canvas, randomWidth, randomHeight, randomRowPosition, randomColPosition, randomColor);
+        }
+        return canvas;
     }
 
     // Utility Methods

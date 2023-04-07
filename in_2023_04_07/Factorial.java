@@ -1,4 +1,4 @@
-// JAVA: ALGORITHMS / Recursion in Java / Recursive Case
+// JAVA: ALGORITHMS / RECURSION IN JAVA / Recursive Case
 
 package in_2023_04_07;
 

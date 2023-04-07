@@ -14,8 +14,21 @@ public class Factorial {
         }
     }
 
+    public static int iterativeFactorial(int n) {
+        int result = 1;
+
+        while (n > 0) {
+            result *= n;
+            n -= 1;
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         int recursiveSolution = recursiveFactorial(4);
         System.out.println(recursiveSolution);
+
+        int iterativeSolution = iterativeFactorial(5);
+        System.out.println(iterativeSolution);
     }
 }

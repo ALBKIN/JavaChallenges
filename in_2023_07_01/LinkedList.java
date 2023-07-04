@@ -36,7 +36,7 @@ public class LinkedList {
         return removedHead.data;
     }
 
-    public String pringList() {
+    public String printList() {
         String output = "<head> ";
         Node currentNode = this.head;
         while (currentNode != null) {

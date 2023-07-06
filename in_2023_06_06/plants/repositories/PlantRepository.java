@@ -1,10 +1,9 @@
 package in_2023_06_06.plants.repositories;
 
-import java.util.List;
-
+import in_2023_06_06.plants.entities.Plant;
 import org.springframework.data.repository.CrudRepository;
 
-import in_2023_06_06.plants.entities.Plant;
+import java.util.List;
 
 public interface PlantRepository extends CrudRepository<Plant, Integer> {
     List<Plant> findByHasFruitTrue();

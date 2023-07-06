@@ -1,19 +1,27 @@
 package in_2023_07_06;
 
+import java.util.Arrays;
+
 public class HashMap {
 
-    public String[] hashMap;
+    public String[] hashmap;
 
     public HashMap(int size) {
-        this.hashMap = new String[size];
+        this.hashmap = new String[size];
     }
 
     public int hash(String key) {
         int hashCode = 0;
         for (int i = 0; i < key.length(); i++) {
-            hashCode += key.codePointAt(i);
+            hashCode += key.codePointAt(i); // alternatively: hashCode = hashCode + Character.codePointAt(key, i);
         }
+        hashCode %= this.hashmap.length;
         return hashCode;
+    }
+
+    public void assign(String key, String value) {
+        int arrayIndex = this.hash(key);
+        this.hashmap[arrayIndex] = value;
     }
 
     public static void main(String[] args) {
@@ -21,5 +29,9 @@ public class HashMap {
         System.out.println(newHashMap.hash("c"));
         System.out.println(newHashMap.hash("ca"));
         System.out.println(newHashMap.hash("car"));
+
+        HashMap employees = new HashMap(3);
+        employees.assign("34-567", "Mara");
+        System.out.println(Arrays.toString(employees.hashmap));
     }
 }

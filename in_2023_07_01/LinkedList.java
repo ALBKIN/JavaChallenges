@@ -43,6 +43,7 @@ public class LinkedList {
             output += currentNode.data + " ";
             currentNode = currentNode.getNextNode();
         }
+        return output;
     }
 
     public static void main(String[] args) {

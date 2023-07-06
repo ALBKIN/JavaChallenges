@@ -5,6 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
+@SuppressWarnings(exist")
 public interface PlantRepository extends CrudRepository<Plant, Integer> {
     List<Plant> findByHasFruitTrue();
     List<Plant> findByHasFruitFalse();

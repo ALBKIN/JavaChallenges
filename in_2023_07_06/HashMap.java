@@ -24,6 +24,11 @@ public class HashMap {
         this.hashmap[arrayIndex] = value;
     }
 
+    public String retrieve(String key) {
+        int arrayIndex = this.hash(key);
+        return this.hashmap[arrayIndex];
+    }
+
     public static void main(String[] args) {
         HashMap newHashMap = new HashMap(3);
         System.out.println(newHashMap.hash("c"));
@@ -33,5 +38,9 @@ public class HashMap {
         HashMap employees = new HashMap(3);
         employees.assign("34-567", "Mara");
         System.out.println(Arrays.toString(employees.hashmap));
+
+        HashMap aboutMe = new HashMap(3);
+        aboutMe.assign("myFavoriteColor", "brown");
+        System.out.println(aboutMe.retrieve("myFavoriteColor"));
     }
 }

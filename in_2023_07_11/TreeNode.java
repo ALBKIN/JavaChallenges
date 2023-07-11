@@ -16,10 +16,22 @@ public class TreeNode {
     public void addChild(TreeNode child) {
         this.children.add(child);
     }
-
     // addChild() method with parameter Object data
     public void addChild(Object childData) {
         TreeNode child = new TreeNode(childData);
         this.children.add(child);
     }
+
+    // removeChild() with TreeNode parameter
+    public void removeChild(TreeNode childToRemove) {
+        if (this.children.isEmpty()) {
+            return;
+        } else if (this.children.contains(childToRemove)) {
+            this.children.remove(childToRemove);
+            return;
+        } else {
+            for (TreeNode child : this.children) {
+                child.removeChild(childToRemove);
+            }
+        }
 }

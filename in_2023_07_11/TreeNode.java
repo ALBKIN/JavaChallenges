@@ -16,6 +16,7 @@ public class TreeNode {
     public void addChild(TreeNode child) {
         this.children.add(child);
     }
+
     // addChild() method with parameter Object data
     public void addChild(Object childData) {
         TreeNode child = new TreeNode(childData);
@@ -34,4 +35,5 @@ public class TreeNode {
                 child.removeChild(childToRemove);
             }
         }
+    }
 }

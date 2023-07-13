@@ -42,7 +42,6 @@ public class BinarySearchTree {
         }
     }
 
-
     // Get Node by Value method
     public BinarySearchTree getNodeByValue(int value) {
         if (value == this.value) {
@@ -55,12 +54,24 @@ public class BinarySearchTree {
         return null;
     }
 
+    // DEPTH FIRST TRAVERSAL METHOD: INORDER
+    public void depthFirstTraversal() {
+        if (this.left != null) {
+            this.left.depthFirstTraversal();
+        }
+        System.out.println(this.value);
+        if (this.right != null) {
+            this.right.depthFirstTraversal();
+        }
+    }
+
     public static void main(String[] args) {
         // Create a new BST:
         BinarySearchTree bt = new BinarySearchTree(15);
         // Print bt's value below:
         System.out.println(bt.value);
 
+        // test getNodeByValue
         BinarySearchTree root = new BinarySearchTree(100);
         root.insert(50);
         root.insert(125);
@@ -69,5 +80,18 @@ public class BinarySearchTree {
 
         System.out.println(root.getNodeByValue(75));
         System.out.println(root.getNodeByValue(55));
+
+        // test depthfirstTraversal
+        BinarySearchTree tree = new BinarySearchTree(48);
+        tree.insert(24);
+        tree.insert(55);
+        tree.insert(26);
+        tree.insert(38);
+        tree.insert(56);
+        tree.insert(74);
+
+        // Print depth-first traversal
+        tree.depthFirstTraversal();
+
     }
 }

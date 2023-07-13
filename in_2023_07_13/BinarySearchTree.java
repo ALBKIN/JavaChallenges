@@ -82,16 +82,18 @@ public class BinarySearchTree {
         System.out.println(root.getNodeByValue(55));
 
         // test depthfirstTraversal
-        BinarySearchTree tree = new BinarySearchTree(48);
-        tree.insert(24);
-        tree.insert(55);
-        tree.insert(26);
-        tree.insert(38);
-        tree.insert(56);
-        tree.insert(74);
+        System.out.println("\nCreating Binary Search Tree rooted at value 15:");
+        BinarySearchTree tree = new BinarySearchTree(19);
+
+        for (int i = 0; i < 10; i++) {
+            tree.insert((int) (Math.random() * 100));
+        }
 
         // Print depth-first traversal
+        System.out.println("Printing the inorder depth-first traversal");
         tree.depthFirstTraversal();
+
+
 
     }
 }

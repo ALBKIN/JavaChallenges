@@ -42,6 +42,19 @@ public class BinarySearchTree {
         }
     }
 
+
+    // Get Node by Value method
+    public BinarySearchTree getNodeByValue(int value) {
+        if (value == this.value) {
+            return this;
+        } else if (value < this.value && left != null) {
+            return left.getNodeByValue(value);
+        } else if (value > this.value && right != null) {
+            return right.getNodeByValue(value);
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         // Create a new BST:
         BinarySearchTree bt = new BinarySearchTree(15);
@@ -53,5 +66,8 @@ public class BinarySearchTree {
         root.insert(125);
         root.insert(75);
         root.insert(25);
+
+        System.out.println(root.getNodeByValue(75));
+        System.out.println(root.getNodeByValue(55));
     }
 }

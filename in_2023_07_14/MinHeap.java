@@ -25,6 +25,19 @@ public class MinHeap {
         this.bubbleUp();
     }
 
+    public int popMin() {
+        if (this.size == 0) {
+            throw new Error("Heap is empty");
+        }
+        System.out.println("Swap min element " + this.heap.get(1) + " and last element " + this.heap.get(this.size));
+        this.swap(1, this.size);
+        int min = this.heap.remove(this.size);
+        System.out.println("Removed from the heap: " + min);
+        System.out.println(this.heap);
+        this.size--;
+        return min;
+    }
+
     private void bubbleUp() {
         System.out.println("Restoring heap condition...");
         int current = this.size;
@@ -88,7 +101,10 @@ public class MinHeap {
         System.out.println("The value at index 3 is " + currentValue);
         System.out.println("Parent value: " + minHeap.heap.get(minHeap.getParent(currentIndex)));
         System.out.println("Left child value: " + minHeap.heap.get(minHeap.getLeft(currentIndex)));
-        System.out.println("Right child value: " + minHeap.heap.get(minHeap.getRight(currentIndex)));
+        System.out.println("Right child value: " + minHeap.heap.get(minHeap.getRight(currentIndex)) + "\n");
+
+        // Remove the minimum value
+        minHeap.popMin();
 
     }
 }

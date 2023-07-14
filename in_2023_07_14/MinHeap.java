@@ -42,11 +42,16 @@ public class MinHeap {
     private void bubbleUp() {
         System.out.println("Restoring heap condition...");
         int current = this.size;
+        int swapCount = 0;
         while (current > 1 && this.heap.get(current) < this.heap.get(this.getParent(current))) {
             System.out.println("Swap index " + current + " with index " + this.getParent(current));
             this.swap(current, this.getParent(current));
             System.out.println(this.heap);
             current = this.getParent(current);
+            swapCount++;
+        }
+        if (this.size == 10000) {
+            System.out.println("A heap of " + this.size + " elements was restored with only " + swapCount + " swaps!");
         }
     }
 
@@ -55,22 +60,29 @@ public class MinHeap {
         int current = 1;
         int leftChild = this.getLeft(current);
         int rightChild = this.getRight(current);
+        int swapCount = 0;
 
         while (this.canSwap(current, leftChild, rightChild)) {
             if (this.exists(leftChild) && this.exists(rightChild)) {
                 if (this.heap.get(leftChild) < this.heap.get(rightChild)) {
                     this.swap(current, leftChild);
                     current = leftChild;
+                    swapCount++;
                 } else {
                     this.swap(current, rightChild);
                     current = rightChild;
+                    swapCount++;
                 }
             } else {
                 this.swap(current, leftChild);
                 current = leftChild;
+                swapCount++;
             }
             leftChild = this.getLeft(current);
             rightChild = this.getRight(current);
+        }
+        if (this.size == 9999) {
+            System.out.println("A heap of " + this.size + " elements was restored with only " + swapCount + " swaps!");
         }
     }
 
@@ -95,7 +107,7 @@ public class MinHeap {
     }
 
     public int getLeft(int current) {
-        return current *2;
+        return current * 2;
     }
 
     public int getRight(int current) {
@@ -147,5 +159,17 @@ public class MinHeap {
             minHeap.popMin();
             System.out.println("HEAPIFIED: " + minHeap.heap);
         }
+
+        /*
+        //Populate minHeap with descending #s form 10001 to 1
+        System.out.println("Addind 10000 individual elements...");
+        for (int i = 10000; i >= 1; i--) {
+            minHeap.add(i);
+        }
+        // Remove minimum value from minHeap
+        System.out.println("Removing the minimum value...");
+        System.out.println("Minimum value: " + minHeap.popMin());
+        */
     }
 }
+

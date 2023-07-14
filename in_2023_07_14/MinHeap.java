@@ -35,6 +35,7 @@ public class MinHeap {
         System.out.println("Removed from the heap: " + min);
         System.out.println(this.heap);
         this.size--;
+        this.heapify();
         return min;
     }
 
@@ -49,10 +50,44 @@ public class MinHeap {
         }
     }
 
+    // Definy HEAPIFY() method
+    private void heapify() {
+        int current = 1;
+        int leftChild = this.getLeft(current);
+        int rightChild = this.getRight(current);
+
+        while (this.canSwap(current, leftChild, rightChild)) {
+            if (this.exists(leftChild) && this.exists(rightChild)) {
+                if (this.heap.get(leftChild) < this.heap.get(rightChild)) {
+                    this.swap(current, leftChild);
+                    current = leftChild;
+                } else {
+                    this.swap(current, rightChild);
+                    current = rightChild;
+                }
+            } else {
+                this.swap(current, leftChild);
+                current = leftChild;
+            }
+            leftChild = this.getLeft(current);
+            rightChild = this.getRight(current);
+        }
+    }
+
+
     private void swap(int a, int b) {
         int temp = this.heap.get(b);
         this.heap.set(b, this.heap.get(a));
         this.heap.set(a, temp);
+    }
+
+    private boolean exists(int index) {
+        return index <= this.size;
+    }
+
+    private boolean canSwap(int current, int leftChild, int rightChild) {
+        return (this.exists(leftChild) && (this.heap.get(current) > this.heap.get(leftChild)))
+                || (this.exists(rightChild) && (this.heap.get(current) > this.heap.get(rightChild)));
     }
 
     public int getParent(int current) {
@@ -80,15 +115,15 @@ public class MinHeap {
         }
 
         //Display contents of minHeap
-         System.out.println(minHeap.size);
+        System.out.println(minHeap.size);
 
         System.out.println("-------------");
         System.out.println("BUBBLED UP: " + minHeap.heap);
 
         // Add 42 to minHeap using add() below
-        minHeap.add(42);
+        // minHeap.add(42);
 
-        // Display parent, left and right indices of currentIndex
+        /*// Display parent, left and right indices of currentIndex
         int currentIndex = 3;
         System.out.println("----------");
         System.out.println("Let's look at index " + currentIndex);
@@ -101,10 +136,16 @@ public class MinHeap {
         System.out.println("The value at index 3 is " + currentValue);
         System.out.println("Parent value: " + minHeap.heap.get(minHeap.getParent(currentIndex)));
         System.out.println("Left child value: " + minHeap.heap.get(minHeap.getLeft(currentIndex)));
-        System.out.println("Right child value: " + minHeap.heap.get(minHeap.getRight(currentIndex)) + "\n");
+        System.out.println("Right child value: " + minHeap.heap.get(minHeap.getRight(currentIndex)) + "\n");*/
 
-        // Remove the minimum value
-        minHeap.popMin();
+        // Remove the minimum valuewithout heapifying
+        // minHeap.popMin();
 
+        // Remove the minimum value multiple times
+        for (int i = 0; i < 6; i++) {
+            System.out.println("----------");
+            minHeap.popMin();
+            System.out.println("HEAPIFIED: " + minHeap.heap);
+        }
     }
 }

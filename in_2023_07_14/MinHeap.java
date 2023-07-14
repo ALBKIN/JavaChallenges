@@ -2,6 +2,7 @@ package in_2023_07_14;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class MinHeap {
 
@@ -26,6 +27,19 @@ public class MinHeap {
 
     private void bubbleUp() {
         System.out.println("Restoring heap condition...");
+        int current = this.size;
+        while (current > 1 && this.heap.get(current) < this.heap.get(this.getParent(current))) {
+            System.out.println("Swap index " + current + " with index " + this.getParent(current));
+            this.swap(current, this.getParent(current));
+            System.out.println(this.heap);
+            current = this.getParent(current);
+        }
+    }
+
+    private void swap(int a, int b) {
+        int temp = this.heap.get(b);
+        this.heap.set(b, this.heap.get(a));
+        this.heap.set(a, temp);
     }
 
     public int getParent(int current) {
@@ -45,17 +59,18 @@ public class MinHeap {
         MinHeap minHeap = new MinHeap();
 
         // Sample content of minHeap
-        minHeap.add(10);
-        minHeap.add(13);
-        minHeap.add(21);
-        minHeap.add(61);
-        minHeap.add(22);
-        minHeap.add(23);
-        minHeap.add(99);
+        Random r = new Random();
+        for (int i = 0; i < 6; i++) {
+            System.out.println("------------");
+            int int_random = r.nextInt(40);
+            minHeap.add(int_random);
+        }
 
         //Display contents of minHeap
-        System.out.println(minHeap.heap);
-        System.out.println(minHeap.size);
+         System.out.println(minHeap.size);
+
+        System.out.println("-------------");
+        System.out.println("BUBBLED UP: " + minHeap.heap);
 
         // Add 42 to minHeap using add() below
         minHeap.add(42);

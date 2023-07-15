@@ -25,8 +25,12 @@ public class QuickSort {
             if (leftPointer < rightPointer) {
                 System.out.println("Swapping " + arr[leftPointer] + " and " + arr[rightPointer]);
                 swap(arr, leftPointer, rightPointer);
-                /*leftPointer++;
-                rightPointer--;*/
+                leftPointer++;
+                rightPointer--;
+            }
+            // THIS HANDLES POSSIBLE DUPLICATES IN RANDOMLY GENERATED INPUT ARRAY
+            if (leftPointer > rightPointer) {
+                break;
             }
         }
         return leftPointer;
@@ -36,8 +40,9 @@ public class QuickSort {
         if (arr.length <= 1) {
             return arr;
         }
-        return quickSort(arr, 0, arr.length -1);
+        return quickSort(arr, 0, arr.length - 1);
     }
+
     public int[] quickSort(int[] arr, int start, int end) {
         if (end > start) {
             // Call partition
@@ -56,12 +61,14 @@ public class QuickSort {
     public static void main(String[] args) {
         QuickSort qs = new QuickSort();
 
-        Random r = new Random();
+        int[] unsorted = {3, 58, 17, 9, 98, 22, 7, 9};
+
+       /* Random r = new Random();
         int[] unsorted = new int[6];
 
         for (int i = 0; i < 6; i++) {
             unsorted[i] = r.nextInt(50);
-        }
+        }*/
 
         // int pivotPosition = qs.partition(testArr, 0, testArr.length-1);
         // System.out.println("Pivot position: " + pivotPosition);

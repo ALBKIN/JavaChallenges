@@ -17,6 +17,10 @@ public class Graph {
         return newVertex;
     }
 
+    public void removeVertex(Vertex vertex) {
+        vertices.remove(vertex);
+    }
+
     public ArrayList<Vertex> getVertices() {
         return this.vertices;
     }
@@ -40,6 +44,8 @@ public class Graph {
         Graph trainNetwork = new Graph();
         Vertex atlantaStation = trainNetwork.addVertex("Atlanta");
         Vertex newYorkStation = trainNetwork.addVertex("New York");
+        trainNetwork.removeVertex(atlantaStation);
+
         trainNetwork.print();
 
     }

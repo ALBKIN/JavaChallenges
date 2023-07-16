@@ -19,8 +19,8 @@ public class Vertex {
         return this.edges;
     }
 
-    public void addEdge(Vertex endVertex) {
-        Edge newEdge = new Edge(this, endVertex, null);
+    public void addEdge(Vertex endVertex, Integer weight) {
+        Edge newEdge = new Edge(this, endVertex, weight);
         edges.add(newEdge);
     }
 

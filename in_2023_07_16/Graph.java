@@ -21,6 +21,12 @@ public class Graph {
         vertices.remove(vertex);
     }
 
+    // method to create double way edge between two vertices
+    public void addEdge(Vertex vertex1, Vertex vertex2) {
+        vertex1.addEdge(vertex2);
+        vertex2.addEdge(vertex1);
+    }
+
     public ArrayList<Vertex> getVertices() {
         return this.vertices;
     }
@@ -44,8 +50,13 @@ public class Graph {
         Graph trainNetwork = new Graph();
         Vertex atlantaStation = trainNetwork.addVertex("Atlanta");
         Vertex newYorkStation = trainNetwork.addVertex("New York");
+        /*
+        TO TEST REMOVAL METHOD
         trainNetwork.removeVertex(atlantaStation);
+         */
 
+        // TEST ADD BOTH WAY EDGE:
+        trainNetwork.addEdge(atlantaStation, newYorkStation);
         trainNetwork.print();
 
     }

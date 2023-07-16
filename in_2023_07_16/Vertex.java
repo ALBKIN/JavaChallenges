@@ -19,6 +19,11 @@ public class Vertex {
         return this.edges;
     }
 
+    public void addEdge(Vertex endVertex) {
+        Edge newEdge = new Edge(this, endVertex, null);
+        edges.add(newEdge);
+    }
+
     public void print(boolean showWeight) {
         String message = "";
 

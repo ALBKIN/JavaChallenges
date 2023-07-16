@@ -27,6 +27,11 @@ public class Graph {
         vertex2.addEdge(vertex1);
     }
 
+    public void removeEdge(Vertex vertex1, Vertex vertex2) {
+        vertex1.removeEdge(vertex2);
+        vertex2.removeEdge(vertex1);
+    }
+
     public ArrayList<Vertex> getVertices() {
         return this.vertices;
     }
@@ -57,6 +62,10 @@ public class Graph {
 
         // TEST ADD BOTH WAY EDGE:
         trainNetwork.addEdge(atlantaStation, newYorkStation);
+        trainNetwork.print();
+
+        System.out.println("Testing the removeEdge() method: ");
+        trainNetwork.removeEdge(atlantaStation, newYorkStation);
         trainNetwork.print();
 
     }

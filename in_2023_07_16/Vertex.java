@@ -24,6 +24,11 @@ public class Vertex {
         edges.add(newEdge);
     }
 
+    // METHOD TO REMOVE AN EDGE
+    public void removeEdge(Vertex endVertex) {
+        edges.removeIf(edge -> edge.getEnd().equals(endVertex));
+    }
+
     public void print(boolean showWeight) {
         String message = "";
 

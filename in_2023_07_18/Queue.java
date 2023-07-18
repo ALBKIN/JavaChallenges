@@ -1,15 +1,14 @@
 package in_2023_07_18;
 
-import in_2023_07_18.LinkedList;
 import in_2023_07_16.Vertex;
 
 public class Queue {
 
-    public LinkedList queue;
+    public LinkedListVertex queue;
     public int size;
 
     public Queue() {
-        this.queue = new LinkedList();
+        this.queue = new LinkedListVertex();
         this.size = 0;
     }
 

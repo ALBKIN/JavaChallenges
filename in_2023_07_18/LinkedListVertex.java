@@ -2,17 +2,17 @@ package in_2023_07_18;
 
 import in_2023_07_16.Vertex;
 
-public class LinkedList {
+public class LinkedListVertex {
 
-    public Node head;
+    public NodeVertex head;
 
-    public LinkedList() {
+    public LinkedListVertex() {
         this.head = null;
     }
 
     public void addToHead(Vertex data) {
-        Node newHead = new Node(data);
-        Node currentHead = this.head;
+        NodeVertex newHead = new NodeVertex(data);
+        NodeVertex currentHead = this.head;
         this.head = newHead;
         if (currentHead != null) {
             this.head.setNextNode(currentHead);
@@ -20,19 +20,19 @@ public class LinkedList {
     }
 
     public void addToTail(Vertex data) {
-        Node tail = this.head;
+        NodeVertex tail = this.head;
         if (tail == null) {
-            this.head = new Node(data);
+            this.head = new NodeVertex(data);
         } else {
             while (tail.getNextNode() != null) {
                 tail = tail.getNextNode();
             }
-            tail.setNextNode(new Node(data));
+            tail.setNextNode(new NodeVertex(data));
         }
     }
 
     public Vertex removeHead() {
-        Node removedHead = this.head;
+        NodeVertex removedHead = this.head;
         if (removedHead == null) {
             return null;
         }

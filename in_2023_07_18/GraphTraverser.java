@@ -19,6 +19,25 @@ public class GraphTraverser {
         }
     }
 
+    public static void breadthFirstTraversal(Vertex start, ArrayList<Vertex> visitedVertices) {
+        Queue visitQueue = new Queue();
+        visitQueue.enqueue(start);
+
+        while (!visitQueue.isEmpty()) {
+            Vertex current = visitQueue.dequeue();
+            System.out.println(current.getData());
+
+            for (Edge edge : current.getEdges()) {
+                Vertex neighbor = edge.getEnd();
+
+                if (!visitedVertices.contains(neighbor)) {
+                    visitedVertices.add(neighbor);
+                    visitQueue.enqueue(neighbor);
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
         TestGraph test = new TestGraph();
         Vertex startingVertex = test.getStartingVertex();
@@ -26,5 +45,7 @@ public class GraphTraverser {
         visitedVertices.add(startingVertex);
 
         GraphTraverser.depthFirstTraversal(startingVertex, visitedVertices);
+
+        GraphTraverser.breadthFirstTraversal(startingVertex, visitedVertices);
     }
 }

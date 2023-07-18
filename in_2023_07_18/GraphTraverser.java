@@ -9,8 +9,8 @@ public class GraphTraverser {
 
     public static void depthFirstTraversal(Vertex start, ArrayList<Vertex> visitedVertices) {
         System.out.println(start.getData());
-        if (start.getEdges().size() > 0) {
-            Vertex neighbor = start.getEdges().get(0).getEnd();
+        for (Edge edge : start.getEdges()) {
+            Vertex neighbor = edge.getEnd();
 
             if (!visitedVertices.contains(neighbor)) {
                 visitedVertices.add(neighbor);

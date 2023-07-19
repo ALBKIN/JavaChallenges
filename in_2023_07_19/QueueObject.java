@@ -18,7 +18,7 @@ public class QueueObject implements Comparable<QueueObject> {
             return 0;
         } else if (this.priority > o.priority) {
             return 1;
-        } else if (this.priority < o.priority) {
+        } else {
             return -1;
         }
     }

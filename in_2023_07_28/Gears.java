@@ -5,9 +5,17 @@ public class Gears {
     private int gearsNo;
     private boolean automatic;
 
-    private Gears(int gearsNo, boolean automatic) {
+    public Gears(int gearsNo, boolean automatic) {
         this.gearsNo = gearsNo;
         this.automatic = automatic;
+    }
+
+    public int getGearsNo() {
+        return this.gearsNo;
+    }
+
+    public boolean getAutomatic() {
+        return this.automatic;
     }
 
     public String toString() {

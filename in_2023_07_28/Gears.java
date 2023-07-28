@@ -11,6 +11,6 @@ public class Gears {
     }
 
     public String toString() {
-        return String.format("Gears number is:%s, Has automatic gearshift: %b", this.gearsNo, this.automatic);
+        return String.format("Gears number is:%d, Has automatic gearshift: %b", this.gearsNo, this.automatic);
     }
 }

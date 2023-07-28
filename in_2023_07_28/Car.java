@@ -13,15 +13,17 @@ public class Car implements Serializable {
     private int year;
     private static final long serialVersionUID = 1L;
     private transient String model;
+    private Engine engine;
 
     public Car(String make, int year, String model) {
         this.make = make;
         this.year = year;
         this.model = model;
+        this.engine = new Engine(2.4, 6);
     }
 
     public String toString(){
-        return String.format("Car make is: %s, Car year is: %d, Car model is: %s, serialVersionUID: %d", this.make, this.year, this.model, serialVersionUID);
+        return String.format("Car make is: %s, Car year is: %d, Car model is: %s, %s, serialVersionUID: %d", this.make, this.year, this.model, this.engine, serialVersionUID);
     }
 
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {

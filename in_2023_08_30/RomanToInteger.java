@@ -32,7 +32,6 @@ public class RomanToInteger {
         }
         return answer;
     }
-}
 
     public static void main(String[] args) {
         RomanToInteger test = new RomanToInteger();

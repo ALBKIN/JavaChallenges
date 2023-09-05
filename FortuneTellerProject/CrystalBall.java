@@ -2,25 +2,13 @@ package FortuneTellerProject;
 
 import java.util.Random;
 
-public class CrystalBall implements Runnable {
-
-    /* Instance Variables */
-    private Question question;
-
-    /* Constructors */
-    public CrystalBall(Question question) {
-        this.question = question;
-    }
+public class CrystalBall {
 
     /* Instance Methods */
-    public void run() {
-        ask(this.question);
-    }
-
     public void ask(Question question) {
-        System.out.println("Good question! You asked: " + question.getQuestion());
+        System.out.println("Good question you asked!");
         this.think(question);
-        System.out.println("Answer: " + this.answer());
+        System.out.println("You wanted to know: " + question.getQuestion() + "\nThe answer is: " + this.answer());
     }
 
     private void think(Question question) {

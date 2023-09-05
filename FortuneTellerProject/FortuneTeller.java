@@ -7,9 +7,10 @@ public class FortuneTeller {
 
     public static void main(String[] args) {
 
+
         List<Question> questions = Arrays.asList(
                 new Question(Question.Difficulty.EASY, "Am I a good coder?"),
-                new Question(Question.Difficulty.MEDIUM, "Will I be able to get a job?"),
+                new Question(Question.Difficulty.MEDIUM, "Will I be able to find a job?"),
                 new Question(Question.Difficulty.EASY, "Will it rain tomorrow?"),
                 new Question(Question.Difficulty.EASY, "Will it snow today?"),
                 new Question(Question.Difficulty.HARD, "Are you really all-knowing?"),
@@ -19,10 +20,11 @@ public class FortuneTeller {
                 new Question(Question.Difficulty.MEDIUM, "Should I clean my room?")
         );
 
+        CrystalBall c = new CrystalBall();
         questions.stream().forEach(q -> {
-            CrystalBall c = new CrystalBall(q);
-            Thread t = new Thread(c);
-            t.start();
+            new Thread(() -> {
+                c.ask(q);
+            }).start();
         });
     }
 }

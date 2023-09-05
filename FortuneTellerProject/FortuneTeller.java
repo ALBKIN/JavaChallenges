@@ -21,7 +21,8 @@ public class FortuneTeller {
 
         questions.stream().forEach(q -> {
             CrystalBall c = new CrystalBall(q);
-            c.start();
+            Thread t = new Thread(c);
+            t.start();
         });
     }
 }

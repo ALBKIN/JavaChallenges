@@ -2,7 +2,7 @@ package FortuneTellerProject;
 
 import java.util.Random;
 
-public class CrystalBall extends Thread {
+public class CrystalBall implements Runnable {
 
     /* Instance Variables */
     private Question question;
@@ -13,7 +13,6 @@ public class CrystalBall extends Thread {
     }
 
     /* Instance Methods */
-    @Override
     public void run() {
         ask(this.question);
     }

@@ -24,8 +24,43 @@
 
 package in_2023_09_06;
 
-public class ValidParentheses {
-    public boolean isValid(String e) {
+import java.util.Stack;
 
+public class ValidParentheses {
+    Stack<Character> stack = new Stack<>();
+    public boolean isValid(String s) {
+        if (s.length() % 2 != 0) {
+            return false;
+        } else {
+            for (int i = 0; i < s.length(); i++) {
+                char c = s.charAt(i);
+                if (c == '(' || c == '{' || c == '[') {
+                    stack.push(c);
+                } else {
+                    if (stack.isEmpty()) {
+                        return false;
+                    }
+                    char open = stack.pop();
+
+                    if (!isMatching(open, c)) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return stack.isEmpty();
     }
-}
+
+        private boolean isMatching(char open, char close) {
+            return (open == '(' && close == ')') ||
+                    (open == '{' && close == '}') ||
+                    (open == '[' && close == ']');
+        }
+
+        public static void main(String[] args) {
+            ValidParentheses vp = new ValidParentheses();
+            System.out.println(vp.isValid("()")); // should print true
+            System.out.println(vp.isValid("()[]{}")); // should print true
+            System.out.println(vp.isValid("(]")); // should print false
+        }
+    }

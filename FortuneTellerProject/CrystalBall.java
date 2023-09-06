@@ -6,19 +6,19 @@ public class CrystalBall {
 
     /* Instance Methods */
     public void ask(Question question) {
-        System.out.println("Good question you asked!");
+        System.out.println(Thread.currentThread().getName() + " - Good question! You asked: " + question.getQuestion());
         this.think(question);
-        System.out.println("You wanted to know: " + question.getQuestion() + "\nThe answer is: " + this.answer());
+        System.out.println(Thread.currentThread().getName() + " - Answer: " + this.answer());
     }
 
     private void think(Question question) {
-        System.out.println("Hmm... Thinking");
+        System.out.println(Thread.currentThread().getName() + " - Hmm... Thinking");
         try {
             Thread.sleep(this.getSleepTimeinMs(question.getDifficulty()));
         } catch (Exception e) {
             System.out.println(e);
         }
-        System.out.println("Done!");
+        System.out.println(Thread.currentThread().getName() + " - Done!");
     }
 
     private String answer() {

@@ -2,6 +2,7 @@ package FortuneTellerProject;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FortuneTeller {
 
@@ -21,10 +22,37 @@ public class FortuneTeller {
         );
 
         CrystalBall c = new CrystalBall();
-        questions.stream().forEach(q -> {
-            new Thread(() -> {
+        List<Thread> threads = questions.stream().map(q -> {
+            Thread t = new Thread(() -> {
                 c.ask(q);
-            }).start();
-        });
+            });
+            return t;
+        }).collect(Collectors.toList());
+
+        Thread supervisor = createSupervisor(threads);
+        threads.stream().forEach(t -> t.start());
+        supervisor.start();
     }
+
+    public static Thread createSupervisor(List<Thread> threads) {
+
+        Thread supervisor = new Thread(() -> {
+            while (true) {
+                List<String> runningThreads = threads.stream().filter(t -> t.isAlive()).map(t -> t.getName()).collect(Collectors.toList());
+                System.out.println(Thread.currentThread().getName() + " - Currently running threads: " + runningThreads);
+                if (runningThreads.isEmpty()) {
+                    break;
+                }
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    System.out.println(e);
+                }
+            }
+            System.out.println(Thread.currentThread().getName() + " - All threads completed!");
+        });
+
+        supervisor.setName("Supervisor");
+        return supervisor;
+    };
 }

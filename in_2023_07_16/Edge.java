@@ -1,7 +1,5 @@
 package in_2023_07_16;
 
-import javax.persistence.criteria.CriteriaBuilder;
-
 public class Edge {
     private Vertex start;
     private Vertex end;

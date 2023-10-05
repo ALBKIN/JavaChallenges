@@ -20,30 +20,16 @@
     -100 <= Node.val <= 100
     Both list1 and list2 are sorted in non-decreasing order.
 
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-
-*/
+ */
 
 package in_2023_10_05;
 
-import in_2023_08_31.ListNode;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class MergeSortedLists {
 
-    // Definition for singly-linked list
-    public static class ListNode {
-        public int val;
-        public ListNode next;
+     // Definition for singly-linked list
+     public static class ListNode {
+     public int val;
+     public ListNode next;
 
         ListNode() {}
         ListNode(int val) { this.val = val; }
